@@ -1,16 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect  } from 'react'
 import './App.css'
-import Hello from "./components/Hello";
+import FetchQuizData from './components/Fetch';
+import PersistentDrawerLeft from './components/NavBar';
 
 function App() {
 
   return (
    <>
       <div>
-	      < Hello />
+	      {/* <Appbar /> */}
+        <PersistentDrawerLeft/>
+        <FetchQuizData/>
       </div>
    </>
   )
+  
 }
 
 export default App
