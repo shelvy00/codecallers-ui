@@ -19,6 +19,12 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Button from '@mui/material/Button';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
 
 const drawerWidth = 240;
 
@@ -79,6 +85,21 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
+  const [auth, setAuth] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleChange = (event) => {
+    setAuth(event.target.checked);
+  };
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -93,10 +114,38 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Code Callers Quizzes!
-          </Typography>
-          <Button style={{ marginLeft: "auto" }} color="inherit">Login</Button>
+          <Button onClick={event =>  window.location.href='/'} color="inherit">Code Callers Quizzes!</Button> 
+          <Button onClick={event =>  window.location.href='/users'} style={{ marginLeft: "auto" }} color="inherit">Users</Button>
+          <div>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>Login</MenuItem>
+                <MenuItem onClick={event =>  window.location.href='/create'}>Create Account</MenuItem>
+              </Menu>
+            </div>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -121,7 +170,7 @@ export default function PersistentDrawerLeft() {
         <List>
           {['Quiz 1', 'Quiz 2', 'Quiz 3', 'Quiz 4'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={event =>  window.location.href='/quiz'}>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
@@ -131,7 +180,7 @@ export default function PersistentDrawerLeft() {
         <List>
           {['Past Quizzes', 'Leaderboard', 'Ope'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton>
+              <ListItemButton >
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
