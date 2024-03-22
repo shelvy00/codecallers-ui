@@ -8,6 +8,7 @@ import { Route,Routes } from 'react-router-dom'
 import Users from './components/Users';
 import Home from './components/Home';
 import CreateAccount from './components/CreateAccount';
+import { Login } from '@mui/icons-material';
 
 function App() {
 
@@ -27,6 +28,9 @@ function App() {
         </Routes>
         <Routes>        
           <Route path="/create"  element={<CreateAccount/>}/>
+        </Routes>
+        <Routes>        
+          <Route path="/login"  element={<Login/>}/>
         </Routes>
       </div>
    </>
