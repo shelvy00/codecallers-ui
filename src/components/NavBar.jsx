@@ -115,7 +115,9 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Button onClick={event =>  window.location.href='/'} color="inherit">Code Callers Quizzes!</Button> 
-          <Button onClick={event =>  window.location.href='/users'} style={{ marginLeft: "auto" }} color="inherit">Users</Button>
+          <Typography align="right" variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Login ➜
+          </Typography>
           <div>
               <IconButton
                 size="large"
@@ -168,19 +170,9 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Quiz 1', 'Quiz 2', 'Quiz 3', 'Quiz 4'].map((text, index) => (
+          {['Quizzes', 'Leaderboard', 'Contact', 'Invite', 'About'].map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton onClick={event =>  window.location.href='/quiz'}>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['Past Quizzes', 'Leaderboard', 'Ope'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton >
+              <ListItemButton onClick={event =>  window.location.href=`/${text}`}>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>

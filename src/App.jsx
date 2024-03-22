@@ -9,27 +9,28 @@ import Users from './components/Users';
 import Home from './components/Home';
 import CreateAccount from './components/CreateAccount';
 import { Login } from '@mui/icons-material';
+import Leaderboard from './components/Leaderboard';
+import Contact from './components/Contact';
+import Invite from './components/Invite';
+import About from './components/About';
+import TakeAQuiz from './components/TakeAQuiz';
 
 function App() {
 
   return (
    <>
       <div>
-	      {/* <Appbar /> */}
         <PersistentDrawerLeft/>
         <Routes>        
-          <Route path="/"  element={<Home/>}/>
-        </Routes>
-        <Routes>        
-          <Route path="/quiz"  element={<FetchQuizData/>}/>
-        </Routes>
-        <Routes>        
-          <Route path="/users"  element={<Users/>}/>
-        </Routes>
-        <Routes>        
-          <Route path="/create"  element={<CreateAccount/>}/>
-        </Routes>
-        <Routes>        
+          <Route path="/"  element={<Home/>}/>   
+          <Route path="/quizzes"  element={<TakeAQuiz/>}/>   
+          <Route path="/quiz"  element={<FetchQuizData/>}/>   
+          <Route path="/leaderboard"  element={<Leaderboard/>}/>   
+          <Route path="/contact"  element={<Contact/>}/>   
+          <Route path="/invite"  element={<Invite/>}/>   
+          <Route path="/about"  element={<About/>}/>   
+          <Route path="/users"  element={<Users/>}/>      
+          <Route path="/create"  element={<CreateAccount/>}/>      
           <Route path="/login"  element={<Login/>}/>
         </Routes>
       </div>
