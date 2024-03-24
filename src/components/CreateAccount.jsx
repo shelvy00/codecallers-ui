@@ -1,8 +1,5 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import {Box, TextField, Stack, Button} from '@mui/material';
 import { Password } from '@mui/icons-material';
 
 
@@ -24,8 +21,7 @@ export default function CreateAccount() {
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(user)
     }).then(()=>{
-        console.log("New User added")
-        
+        alert("New Account Created!")
     }).then(event =>  window.location.href='/users') // Redirects to a list of users
     }
   
@@ -60,7 +56,7 @@ export default function CreateAccount() {
         value={password}  
         onChange={(event)=>setPassword(event.target.value)}
       />
-      <TextField type= "verifyPassword" id="outlined-password-input" label="Confirm Password" variant="outlined" 
+      <TextField type= "password" id="outlined-password-input" label="Confirm Password" variant="outlined" 
         value={verifyPassword}  
         onChange={(event)=>setVerifyPassword(event.target.value)}
       />

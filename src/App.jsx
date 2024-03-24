@@ -1,14 +1,14 @@
 import React from 'react';
 import { useState, useEffect  } from 'react'
 import './App.css'
-import FetchQuizData from './components/FetchQuizData';
-import PersistentDrawerLeft from './components/NavBar';
-
+import NavBar from './components/NavBar';
 import { Route,Routes } from 'react-router-dom'
+import FetchQuizData from './components/FetchQuizData';
+import { Login } from '@mui/icons-material';
+
 import Users from './components/Users';
 import Home from './components/Home';
 import CreateAccount from './components/CreateAccount';
-import { Login } from '@mui/icons-material';
 import Leaderboard from './components/Leaderboard';
 import Contact from './components/Contact';
 import Invite from './components/Invite';
@@ -16,6 +16,7 @@ import About from './components/About';
 import TakeAQuiz from './components/TakeAQuiz';
 import MyAccount from './components/MyAccount';
 import EditAccount from './components/EditAccount';
+import DeleteAccount from './components/DeleteAccount';
 
 let username;
 
@@ -24,7 +25,7 @@ function App() {
   return (
    <>
       <div>
-        <PersistentDrawerLeft/>
+        <NavBar/>
         <Routes>        
           <Route path="/"  element={<Home/>}/>   
           <Route path="/quizzes"  element={<TakeAQuiz/>}/>   
@@ -38,6 +39,7 @@ function App() {
           <Route path="/login"  element={<Login/>}/>
           <Route path="/myaccount/:username"  element={<MyAccount/>}/>  
           <Route path="/editaccount/:username"  element={<EditAccount/>}/>  
+          <Route path="/deleteaccount/:username"  element={<DeleteAccount/>}/>  
         </Routes>
       </div>
    </>

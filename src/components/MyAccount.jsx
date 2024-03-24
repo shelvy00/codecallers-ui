@@ -34,7 +34,7 @@ function MyAccount() {
       <Button variant="contained" onClick={event =>  window.location.href=`/editaccount/${username}`}>
         Edit Profile
       </Button >
-      <Button variant="contained">
+      <Button variant="contained" onClick={event =>  window.location.href=`/deleteaccount/${username}`}>
         Delete Profile
       </Button>
     </div>

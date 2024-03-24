@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {useParams } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import {Button, TextField} from '@mui/material';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -9,14 +8,10 @@ import { DateField } from '@mui/x-date-pickers/DateField';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from "dayjs";
 
-import Stack from '@mui/material/Stack';
-
 // need to run the following commands for dates to work:
 // npm install @mui/x-date-pickers
 // npm install dayjs
 // npm install @mui/lab
-
-
 
 function EditAccount() {
 
@@ -52,7 +47,6 @@ function EditAccount() {
       body:JSON.stringify(user)
     }).then(()=>{
         alert("Account Updated!")
-        
     }).then(event =>  window.location.href=`/myaccount/${username}`) // Redirects back to user's profile
     }
 
@@ -67,16 +61,12 @@ function EditAccount() {
         value={lastName}
         onChange={(event)=>setLastName(event.target.value)}
       />
-
-
       <LocalizationProvider dateAdapter={AdapterDayjs} >
         <DatePicker label="Birthday" 
         value={date}
         onChange={date => setBirthday(date.format('MMM DD YYYY').toString())}
         />
       </LocalizationProvider>
-
-      
       <TextField id="outlined-basic" label="Bio" variant="outlined" 
         value={bio}
         onChange={(event)=>setBio(event.target.value)}

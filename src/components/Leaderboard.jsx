@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function Users() {
+function Leaderboard() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -41,4 +41,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default Leaderboard;
