@@ -51,29 +51,41 @@ function EditAccount() {
     }
 
   return (
-    <div>
-      <h1>Edit {username}'s Account</h1>
-      <TextField id="outlined-basic" label="First Name" variant="outlined" 
-        value={firstName}
-        onChange={(event)=>setFirstName(event.target.value)}
-      />
-      <TextField id="outlined-basic" label="Last Name" variant="outlined" 
-        value={lastName}
-        onChange={(event)=>setLastName(event.target.value)}
-      />
-      <LocalizationProvider dateAdapter={AdapterDayjs} >
-        <DatePicker label="Birthday" 
-        value={date}
-        onChange={date => setBirthday(date.format('MMM DD YYYY').toString())}
+    <div style={{border: '5px solid rgba(0, 0, 0, 0.96)', padding: '50px', borderRadius: '25px'}}>
+      <div>
+        <h1>Edit<br></br>{username}'s<br></br>Account</h1>
+      </div>
+      <div>
+        <TextField id="firstName" label="First Name" variant="outlined" style={{margin : '5px'}}
+          value={firstName}
+          onChange={(event)=>setFirstName(event.target.value)}
         />
-      </LocalizationProvider>
-      <TextField id="outlined-basic" label="Bio" variant="outlined" 
-        value={bio}
-        onChange={(event)=>setBio(event.target.value)}
-      />
-      <Button variant="contained" onClick={handleClick}>
-        Submit
-      </Button >
+      </div>
+      <div>
+        <TextField id="lastName" label="Last Name" variant="outlined" style={{margin : '5px'}}
+          value={lastName}
+          onChange={(event)=>setLastName(event.target.value)}
+        />
+      </div>
+      <div style={{margin : '5px'}}>
+        <LocalizationProvider dateAdapter={AdapterDayjs} >
+          <DatePicker label="Birthday"  
+          value={date}
+          onChange={date => setBirthday(date.format('MMM DD YYYY').toString())}
+          />
+        </LocalizationProvider>
+      </div>
+      <div>
+        <TextField id="bio" label="Bio" variant="outlined" multiline rows={4} style={{margin : '5px'}}
+          value={bio}
+          onChange={(event)=>setBio(event.target.value)}
+        />
+      </div>
+      <div>
+        <Button variant="contained" onClick={handleClick} style={{margin : '5px'}}>
+          Submit
+        </Button >
+      </div>
     </div>
   );
 

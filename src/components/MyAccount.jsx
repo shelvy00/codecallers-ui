@@ -25,16 +25,16 @@ function MyAccount() {
 
 
   return (
-    <div>
-      <h1>{user.username}'s Profile</h1>
+    <div style={{border: '5px solid rgba(0, 0, 0, 0.96)', padding: '50px', borderRadius: '25px'}}>
+      <h1>{user.username}'s<br></br>Profile</h1>
       <p>Name: {user.firstName} {user.lastName}</p>
       <p>Current Score: {user.score}</p>
       <p>Birthday: {user.birthday}</p>
       <p>Bio: {user.bio}</p>
-      <Button variant="contained" onClick={event =>  window.location.href=`/editaccount/${username}`}>
+      <Button variant="contained" onClick={event =>  window.location.href=`/editaccount/${username}`} style={{margin : '5px'}}>
         Edit Profile
       </Button >
-      <Button variant="contained" onClick={event =>  window.location.href=`/deleteaccount/${username}`}>
+      <Button variant="contained" onClick={event =>  window.location.href=`/deleteaccount/${username}`} style={{margin : '5px', backgroundColor: "red"}}>
         Delete Profile
       </Button>
     </div>

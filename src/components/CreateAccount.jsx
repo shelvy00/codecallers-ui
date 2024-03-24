@@ -15,7 +15,20 @@ export default function CreateAccount() {
   const handleClick=(event)=>{
     event.preventDefault()
     const user={firstName, lastName, username, email, password}
-    console.log(user)
+    if(firstName === '' | lastName === '' | username === '' | email === '' | password  === ''){
+      alert("All fields are required!");
+      event.preventDefault();
+    } else if (verifyPassword !== password){
+      alert("Passwords do not match!");
+      event.preventDefault();
+    } else if (password.length < 8){
+      alert("Password must be 8 characters long or longer!");
+      event.preventDefault();
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+      alert("Invalid email address!");
+      event.preventDefault();
+    }
+    else
     fetch("http://localhost:8080/user/create", {
       method:"POST",
       headers:{"Content-Type":"application/json"},
@@ -34,35 +47,58 @@ export default function CreateAccount() {
       }}
       noValidate
       autoComplete="off"
+      style={{border: '5px solid rgba(0, 0, 0, 0.96)', padding: '50px', borderRadius: '25px'}}
     >
-      <h1>Create Account</h1>
-      <TextField id="outlined-basic" label="First Name" variant="outlined" 
-        value={firstName}
-        onChange={(event)=>setFirstName(event.target.value)}
-      />
-      <TextField id="outlined-basic" label="Last Name" variant="outlined" 
-        value={lastName}
-        onChange={(event)=>setLastName(event.target.value)}
-      />
-      <TextField id="outlined-basic" label="Username" variant="outlined" 
-        value={username}
-        onChange={(event)=>setUsername(event.target.value)}
-      />
-      <TextField id="outlined-basic" label="Email" variant="outlined" 
-        value={email}
-        onChange={(event)=>setEmail(event.target.value)}
-      />
-      <TextField type= "password" id="outlined-password-input" label="Password" variant="outlined" 
-        value={password}  
-        onChange={(event)=>setPassword(event.target.value)}
-      />
-      <TextField type= "password" id="outlined-password-input" label="Confirm Password" variant="outlined" 
-        value={verifyPassword}  
-        onChange={(event)=>setVerifyPassword(event.target.value)}
-      />
-      <Button variant="contained" onClick={handleClick}>
-        Submit
-      </Button>
+      <div>
+        <h1>Create Account</h1>
+      </div>
+      <div>
+        <TextField id="firstName" label="First Name" variant="outlined" 
+          value={firstName}
+          onChange={(event)=>setFirstName(event.target.value)} 
+          required
+        />
+      </div>
+      <div>
+        <TextField id="lastName" label="Last Name" variant="outlined" 
+          value={lastName}
+          onChange={(event)=>setLastName(event.target.value)} 
+          required
+        />
+      </div>
+      <div>
+        <TextField id="username" label="Username" variant="outlined" 
+          value={username}
+          onChange={(event)=>setUsername(event.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <TextField type="email" id="email" label="Email" variant="outlined" 
+          value={email}
+          onChange={(event)=>setEmail(event.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <TextField type= "password" id="password" label="Password" variant="outlined" autoComplete="off" 
+          value={password}  
+          onChange={(event)=>setPassword(event.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <TextField type= "password" id="verifyPassword" label="Confirm Password" variant="outlined" autoComplete="off"
+          value={verifyPassword}  
+          onChange={(event)=>setVerifyPassword(event.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <Button variant="contained" onClick={handleClick}>
+          Submit
+        </Button>
+      </div>
     </Box>
   );
 }

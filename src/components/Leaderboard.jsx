@@ -11,7 +11,7 @@ function Leaderboard() {
   }, []);
 
   return (
-    <div>
+    <div style={{border: '5px solid rgba(0, 0, 0, 0.96)', padding: '50px', borderRadius: '25px'}}>
       <h2>Leaderboard</h2>
         <table>
           <tr>
