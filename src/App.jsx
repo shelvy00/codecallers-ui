@@ -14,6 +14,10 @@ import Contact from './components/Contact';
 import Invite from './components/Invite';
 import About from './components/About';
 import TakeAQuiz from './components/TakeAQuiz';
+import MyAccount from './components/MyAccount';
+import EditAccount from './components/EditAccount';
+
+let username;
 
 function App() {
 
@@ -32,6 +36,8 @@ function App() {
           <Route path="/users"  element={<Users/>}/>      
           <Route path="/create"  element={<CreateAccount/>}/>      
           <Route path="/login"  element={<Login/>}/>
+          <Route path="/myaccount/:username"  element={<MyAccount/>}/>  
+          <Route path="/editaccount/:username"  element={<EditAccount/>}/>  
         </Routes>
       </div>
    </>
