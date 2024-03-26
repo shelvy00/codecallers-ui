@@ -23,13 +23,13 @@ let username;
 function App() {
 
   return (
-   <>
+    <>
       <div>
         <NavBar/>
         <Routes>        
           <Route path="/"  element={<Home/>}/>   
           <Route path="/quizzes"  element={<TakeAQuiz/>}/>   
-          <Route path="/quiz/:topic/:difficulty"  element={<FetchQuizData/>}/>   
+          <Route path="/quiz"  element={<FetchQuizData/>}/>   
           <Route path="/leaderboard"  element={<Leaderboard/>}/>   
           <Route path="/contact"  element={<Contact/>}/>   
           <Route path="/invite"  element={<Invite/>}/>   
@@ -42,9 +42,9 @@ function App() {
           <Route path="/deleteaccount/:username"  element={<DeleteAccount/>}/>  
         </Routes>
       </div>
-   </>
+    </>
   )
-  
+
 }
 
 export default App
