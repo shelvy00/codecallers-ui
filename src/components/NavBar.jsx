@@ -9,6 +9,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { useAuth } from './AuthProvider';
 
 const drawerWidth = 240;
 
@@ -128,8 +129,9 @@ export default function NavBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Login</MenuItem>
+                <MenuItem onClick={event =>  window.location.href='/login'}>Login</MenuItem>
                 <MenuItem onClick={event =>  window.location.href='/create'}>Create Account</MenuItem>
+                <MenuItem onClick={() => auth.logOut()}>logout</MenuItem>
               </Menu>
             </div>
         </Toolbar>

@@ -1,34 +1,47 @@
+import React, { useState } from 'react';
+
+import { useAuth } from './AuthProvider';
+
+import '../App.css';
+
+export default function Login(){
+  const [input, setUsername] = useState({
+    username: "",
+    password: "",
+  });
+
+  const auth = useAuth();
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (input.username !== "" && input.password !== "") {
+      auth.loginAction(input);
+      return;
+    }
 
 
 
 
 
-
-
-return (
-    <Box
-      component="form"
-      sx={{
-        '& > :not(style)': { m: 1, width: '25ch' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <h1>Create Account</h1>
-      <TextField id="outlined-basic" label="Name" variant="outlined" 
-        value={name}
-        onChange={(event)=>setName(event.target.value)}
+  return (
+    <div>
+    <form onSubmit={handleClick}>
+      <input
+        className="inputBox"
+        type="text"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
       />
-      <TextField id="outlined-basic" label="Email" variant="outlined" 
-      value={email}
-      onChange={(event)=>setEmail(event.target.value)}
+      <input
+        className="inputBox"
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
-      <TextField type= "password" id="outlined-password-input" label="Password" variant="outlined" 
-      value={password}  
-      onChange={(event)=>setPassword(event.target.value)}
-      />
-      <Button variant="contained" onClick={handleClick}>
-        Submit
-      </Button>
-    </Box>
+      <button className='button' type="submit">Login</button>
+    </form>
+    </div>
   );
+  };
+};
