@@ -102,6 +102,7 @@ export default function NavBar() {
           <Typography align="right" variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Login ➜
           </Typography>
+        
           <div>
               <IconButton
                 size="large"
@@ -128,7 +129,7 @@ export default function NavBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Login</MenuItem>
+                <MenuItem onClick={event =>  window.location.href='/login'}>Login</MenuItem>
                 <MenuItem onClick={event =>  window.location.href='/create'}>Create Account</MenuItem>
               </Menu>
             </div>

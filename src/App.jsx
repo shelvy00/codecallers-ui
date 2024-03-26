@@ -4,7 +4,6 @@ import './App.css'
 import NavBar from './components/NavBar';
 import { Route,Routes } from 'react-router-dom'
 import FetchQuizData from './components/FetchQuizData';
-import { Login } from '@mui/icons-material';
 
 import Users from './components/Users';
 import Home from './components/Home';
@@ -17,6 +16,7 @@ import TakeAQuiz from './components/TakeAQuiz';
 import MyAccount from './components/MyAccount';
 import EditAccount from './components/EditAccount';
 import DeleteAccount from './components/DeleteAccount';
+import Login from './components/Login';
 
 let username;
 
@@ -29,7 +29,7 @@ function App() {
         <Routes>        
           <Route path="/"  element={<Home/>}/>   
           <Route path="/quizzes"  element={<TakeAQuiz/>}/>   
-          <Route path="/quiz"  element={<FetchQuizData/>}/>   
+          <Route path="/quiz/:topic/:difficulty"  element={<FetchQuizData/>}/>   
           <Route path="/leaderboard"  element={<Leaderboard/>}/>   
           <Route path="/contact"  element={<Contact/>}/>   
           <Route path="/invite"  element={<Invite/>}/>   
