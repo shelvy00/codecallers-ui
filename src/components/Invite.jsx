@@ -20,7 +20,8 @@ function Invite() {
         <h2>Invite</h2>
       </div>
       <div>
-          <TextField id="inviteEmail" label="Email" variant="outlined" 
+          <TextField id="inviteEmail" label="Email" variant="outlined"
+            fullWidth 
             value={inviteEmail}
             onChange={(event)=>setInviteEmail(event.target.value)} 
             required
@@ -33,6 +34,7 @@ function Invite() {
             multiline
             rows={5}
             value={message}
+            fullWidth
             onChange={(event)=>setMessage(event.target.value)} 
             required
           />
