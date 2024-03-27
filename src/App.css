@@ -44,3 +44,15 @@
 tr:nth-child(even) {
   background-color: #00000028;
 }
+
+.float-child-left {
+  width: 450px;
+  float: left;
+  padding: 20px;
+}  
+
+.float-child-right {
+  width: auto;
+  float: left;
+  padding: 20px;
+}  
