@@ -27,7 +27,7 @@ function Leaderboard() {
             {users.map((val, key) => {
               return (
                   <tr key={key}>
-                      <td>{key+1}</td>
+                      <td>#{key+1}</td>
                       <td>
                         <a href={`/myaccount/${val.username}`}>{val.username}</a>
                         </td>
