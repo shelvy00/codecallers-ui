@@ -59,7 +59,7 @@ function ProfilePicSelector() {
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(user)
     }).then(()=>{
-        alert(`Profile Pic: ${profilePic}`)
+        alert(`Profile Pic Updated!`)
     }).then(event =>  window.location.href=`/myaccount/${username}`) // Redirects back to user's profile
     }
 

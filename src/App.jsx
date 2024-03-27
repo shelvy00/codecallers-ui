@@ -31,13 +31,13 @@ function App() {
           <Route path="/ProfilePicSelector/:username" element={<ProfilePicSelector />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<Home />} />
           <Route path="/quizzes" element={<TakeAQuiz />} />
           <Route path="/quiz/:topic/:difficulty" element={<FetchQuizData />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/invite" element={<Invite />} />
           <Route path="/about" element={<About />} />
-          <Route path="/users" element={<Users />} />
           <Route path="/create" element={<CreateAccount />} />
           <Route path="/myaccount/:username" element={<MyAccount />} />
           <Route path="/editaccount/:username" element={<EditAccount />} />
