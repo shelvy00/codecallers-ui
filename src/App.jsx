@@ -19,6 +19,7 @@ import EditAccount from './components/EditAccount';
 import DeleteAccount from './components/DeleteAccount';
 import LightDark from './components/LightDark';
 import './Switch.css'
+import ProfilePicSelector from './components/ProfilePicSelector';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <div>
         <NavBar />
         <Routes>
+          <Route path="/ProfilePicSelector/:username" element={<ProfilePicSelector />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/quizzes" element={<TakeAQuiz />} />
@@ -40,6 +42,7 @@ function App() {
           <Route path="/myaccount/:username" element={<MyAccount />} />
           <Route path="/editaccount/:username" element={<EditAccount />} />
           <Route path="/deleteaccount/:username" element={<DeleteAccount />} />
+          
         </Routes>
       </div>
     </>
